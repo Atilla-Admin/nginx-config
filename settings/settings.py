@@ -49,5 +49,8 @@ class Settings():
                                             self.settings['proxy-pass'],
                                             self.settings[key])
 
+    def get_all(self):
+        return self.settings
+
     def get(self, arg):
         return self.settings[arg]
