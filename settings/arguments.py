@@ -51,7 +51,6 @@ class ArgumentsParser():
 
     def parse(self):
         self.args = self.parser.parse_args()
-        print(vars(self.args))
 
     def help(self):
         return self.parser.print_help()
