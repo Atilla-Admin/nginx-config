@@ -21,31 +21,36 @@ class ArgumentsParser():
 
         self.ssl_method.add_argument('--use-ssl', '-us',
                                      help='activate SSL support',
-                                     action='store_true')
+                                     action='store_true',
+                                     dest='use_ssl')
 
         self.ssl_method.add_argument('--force-ssl', '-fs',
                                      help='force SSL support',
-                                     action='store_true')
+                                     action='store_true',
+                                     dest='force_ssl')
 
         self.ssl_group.add_argument('--ssl-path',
                                     help=('path in which SSL '
-                                          'files can be found'))
+                                          'files can be found'),
+                                    dest='ssl_path')
 
         self.ssl_group.add_argument('--key',
-                                 help='SSL certificate key file name')
+                                    help='SSL certificate key file name')
 
         self.ssl_group.add_argument('--cert',
-                         help='SSL fullchain certificate')
+                                    help='SSL fullchain certificate')
 
         self.ssl_group.add_argument('--trust-cert',
-                                 help='SSL trusted certificate')
+                                    help='SSL trusted certificate',
+                                    dest='trust_cert')
 
         self.parser.add_argument('--debug', '-d',
                                  help='enable debug mode in error logs',
                                  action='store_true')
 
         self.parser.add_argument('--log-path',
-                                 help='log path')
+                                 help='log path',
+                                 dest='log_path')
 
         self.parse()
 
