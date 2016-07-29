@@ -14,8 +14,8 @@ class Settings():
     def merge_configurations(self):
         self.settings = {}
 
-        self.settings['server-name'] = self.arguments['server-name']
-        self.settings['proxy-pass'] = self.arguments['proxy-pass']
+        self.settings['server_name'] = self.arguments['server-name']
+        self.settings['proxy_pass'] = self.arguments['proxy-pass']
 
         """ The configuration file should contain every configuration
             directives """
@@ -32,21 +32,21 @@ class Settings():
 
     """ Check if the final configuration is valid """
     def verify_configuration(self):
-        if ((self.settings['use-ssl'] or self.settings['force-ssl'])
+        if ((self.settings['use_ssl'] or self.settings['force_ssl'])
                 and (self.settings['key'] is None
                         or self.settings['cert'] is None
-                        or self.settings['trust-cert'] is None
-                        or self.settings['ssl-path'] is None)):
+                        or self.settings['trust_cert'] is None
+                        or self.settings['ssl_path'] is None)):
             raise EnvironmentError("Bad configuration")
 
     def replace_keywords(self):
         for key in self.settings:
             if isinstance(self.settings[key], str):
-                self.settings[key] = re.sub(r"\$server-name",
-                                            self.settings['server-name'],
+                self.settings[key] = re.sub(r"\$server_name",
+                                            self.settings['server_name'],
                                             self.settings[key])
-                self.settings[key] = re.sub(r"\$proxy-pass",
-                                            self.settings['proxy-pass'],
+                self.settings[key] = re.sub(r"\$proxy_pass",
+                                            self.settings['proxy_pass'],
                                             self.settings[key])
 
     def get_all(self):
