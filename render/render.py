@@ -20,7 +20,6 @@ class Render():
             print(self.content)
 
     def to_file(self):
-        print(self.settings.get('overwrite_output'))
         if (os.path.isfile(self.output_file)
                 and self.settings.get('overwrite_output') is not True):
                 print('Output file aleready exists, use --overwrite-output'
