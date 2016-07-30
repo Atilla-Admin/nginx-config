@@ -53,4 +53,6 @@ class Settings():
         return self.settings
 
     def get(self, arg):
+        if arg not in self.settings:
+            return None
         return self.settings[arg]
