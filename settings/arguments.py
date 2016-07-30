@@ -59,6 +59,10 @@ class ArgumentsParser():
                                  help='output file',
                                  dest='output_file')
 
+        self.parser.add_argument('--output-symlink',
+                                 help='symlink to output file',
+                                 dest='output_symlink')
+
         self.parser.add_argument('--overwrite-output',
                                  help=('owerwrite the output file if it '
                                        'already exists'),
