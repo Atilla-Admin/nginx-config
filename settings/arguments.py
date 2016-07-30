@@ -52,6 +52,10 @@ class ArgumentsParser():
                                  help='log path',
                                  dest='log_path')
 
+        self.parser.add_argument('--output-file',
+                                 help='output file',
+                                 dest='output_file')
+
         self.parse()
 
     def parse(self):
