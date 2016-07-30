@@ -22,11 +22,13 @@ class ArgumentsParser():
         self.ssl_method.add_argument('--use-ssl', '-us',
                                      help='activate SSL support',
                                      action='store_true',
+                                     default=None,
                                      dest='use_ssl')
 
         self.ssl_method.add_argument('--force-ssl', '-fs',
                                      help='force SSL support',
                                      action='store_true',
+                                     default=None,
                                      dest='force_ssl')
 
         self.ssl_group.add_argument('--ssl-path',
@@ -46,11 +48,27 @@ class ArgumentsParser():
 
         self.parser.add_argument('--debug', '-d',
                                  help='enable debug mode in error logs',
+                                 default=None,
                                  action='store_true')
 
         self.parser.add_argument('--log-path',
                                  help='log path',
                                  dest='log_path')
+
+        self.parser.add_argument('--output-file',
+                                 help='output file',
+                                 dest='output_file')
+
+        self.parser.add_argument('--output-symlink',
+                                 help='symlink to output file',
+                                 dest='output_symlink')
+
+        self.parser.add_argument('--overwrite-output',
+                                 help=('owerwrite the output file if it '
+                                       'already exists'),
+                                 default=None,
+                                 action='store_true',
+                                 dest='overwrite_output')
 
         self.parse()
 

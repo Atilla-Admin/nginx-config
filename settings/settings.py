@@ -23,9 +23,9 @@ class Settings():
             if ((key in self.arguments)
                     and (self.arguments[key] is not None)):
                 self.settings[key] = self.arguments[key]
-            elif self.file_config[key] == 'yes':
+            elif "yes" == self.file_config[key]:
                 self.settings[key] = True
-            elif self.file_config[key] == 'no':
+            elif "no" == self.file_config[key]:
                 self.settings[key] = False
             else:
                 self.settings[key] = self.file_config[key]
@@ -53,4 +53,6 @@ class Settings():
         return self.settings
 
     def get(self, arg):
+        if arg not in self.settings:
+            return None
         return self.settings[arg]
