@@ -56,6 +56,12 @@ class ArgumentsParser():
                                  help='output file',
                                  dest='output_file')
 
+        self.parser.add_argument('--overwrite-output',
+                                 help=('owerwrite the output file if it '
+                                       'already exists'),
+                                 action='store_true',
+                                 dest='overwrite_output')
+
         self.parse()
 
     def parse(self):
