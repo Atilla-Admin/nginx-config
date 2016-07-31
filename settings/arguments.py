@@ -1,5 +1,6 @@
 import argparse
 
+
 class ArgumentsParser():
 
     description = """ Generate and activate a new Nginx vhost file for a

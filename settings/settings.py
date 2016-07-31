@@ -3,6 +3,7 @@ import re
 from .arguments import ArgumentsParser
 from .files import FileParser
 
+
 class Settings():
     def __init__(self):
         self.arguments = ArgumentsParser().get_all()
@@ -34,9 +35,9 @@ class Settings():
     def verify_configuration(self):
         if ((self.settings['use_ssl'] or self.settings['force_ssl'])
                 and (self.settings['key'] is None
-                        or self.settings['cert'] is None
-                        or self.settings['trust_cert'] is None
-                        or self.settings['ssl_path'] is None)):
+                     or self.settings['cert'] is None
+                     or self.settings['trust_cert'] is None
+                     or self.settings['ssl_path'] is None)):
             raise EnvironmentError("Bad configuration")
 
     def replace_keywords(self):

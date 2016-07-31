@@ -1,7 +1,7 @@
 import os.path
 
 from jinja2 import Environment, PackageLoader
-from settings.settings import Settings
+
 
 class Render():
     def __init__(self, settings):
