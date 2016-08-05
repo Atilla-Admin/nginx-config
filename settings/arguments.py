@@ -60,6 +60,12 @@ class ArgumentsParser():
                 dest='trust_cert')
 
         self.parser.add_argument(
+                '--reload',
+                help='try to issue "systemctl reload nginx" after render',
+                default=None,
+                action='store_true')
+
+        self.parser.add_argument(
                 '--debug',
                 '-d',
                 help='enable debug mode in error logs',
