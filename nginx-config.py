@@ -1,9 +1,5 @@
-import os.path
-
-from jinja2 import Environment, PackageLoader
 from settings.settings import Settings
-
-from render.render import Render
+from actions.render import Render
 
 if __name__ == "__main__":
     s = Settings()
