@@ -20,6 +20,7 @@ class Render():
             self.to_file()
         else:
             print(self.content)
+        self.ensure_log_present()
 
     def to_file(self):
         print('Writing output to ' + self.output_file)
@@ -52,7 +53,10 @@ class Render():
         if not os.path.exists(self.settings.get('log_path')):
             if self.settings.get('ensure_log_directory'):
                 print('Creating the log directory')
-                os.makedir(self.settings.get('log_path'))
+                try:
+                    os.makedir(self.settings.get('log_path'))
+                except:
+                    print('Unable to create the log directory')
             else:
                 print('Log directory not created, use --ensure-log-directory'
                       ' to create it')
