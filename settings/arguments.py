@@ -56,6 +56,11 @@ class ArgumentsParser():
                                  help='log path',
                                  dest='log_path')
 
+        self.parser.add_argument('--ensure-log-directory',
+                                 help='ensure that the log dir is present',
+                                 action='store_true',
+                                 dest='ensure_log_directory')
+
         self.parser.add_argument('--output-file',
                                  help='output file',
                                  dest='output_file')
