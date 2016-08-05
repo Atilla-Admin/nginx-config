@@ -54,7 +54,7 @@ class Render():
             if self.settings.get('ensure_log_directory'):
                 print('Creating the log directory')
                 try:
-                    os.makedir(self.settings.get('log_path'))
+                    os.makedirs(self.settings.get('log_path'))
                 except:
                     print('Unable to create the log directory')
             else:
