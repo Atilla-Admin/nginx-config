@@ -8,7 +8,7 @@ class ArgumentsParser():
 
     epilog = ""
 
-    def __init__(self):
+    def __init__(self, auto_parse=True):
         self.parser = argparse.ArgumentParser(description=self.description,
                                               epilog=self.epilog)
 
@@ -71,10 +71,11 @@ class ArgumentsParser():
                                  action='store_true',
                                  dest='overwrite_output')
 
-        self.parse()
+        if auto_parse:
+            self.parse()
 
-    def parse(self):
-        self.args = self.parser.parse_args()
+    def parse(self, args=None):
+        self.args = self.parser.parse_args(args)
 
     def help(self):
         return self.parser.print_help()
