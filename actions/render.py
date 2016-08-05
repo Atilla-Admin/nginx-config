@@ -6,8 +6,10 @@ from jinja2 import Environment, PackageLoader
 class Render():
     def __init__(self, settings):
         self.settings = settings
-        self.env = Environment(loader=PackageLoader('nginx-config',
-                                                    'templates'))
+        self.env = Environment(
+                loader=PackageLoader(
+                    'nginx-config',
+                    'templates'))
         self.template = self.env.get_template('vhost.conf')
         self.content = self.template.render(settings.get_all())
 
@@ -23,7 +25,7 @@ class Render():
         self.ensure_log_present()
 
     def to_file(self):
-        print('Writing output to ' + self.output_file)
+        print('Writing output to {}'.format(self.output_file))
         if (os.path.isfile(self.output_file)
                 and self.settings.get('overwrite_output') is not True):
                 print('Output file aleready exists, use --overwrite-output'
@@ -39,7 +41,7 @@ class Render():
             print('Unable to write generated template to file')
 
     def create_symlink(self):
-        print('Creating symlink ' + self.output_symlink)
+        print('Creating symlink {}'.format(self.output_symlink))
         if (os.path.isfile(self.output_symlink)
                 and self.settings.get('overwrite_output') is not True):
                 print('File aleready exists, use --overwrite-output to force')

@@ -43,12 +43,14 @@ class Settings():
     def replace_keywords(self):
         for key in self.settings:
             if isinstance(self.settings[key], str):
-                self.settings[key] = re.sub(r"\$server_name",
-                                            self.settings['server_name'],
-                                            self.settings[key])
-                self.settings[key] = re.sub(r"\$proxy_pass",
-                                            self.settings['proxy_pass'],
-                                            self.settings[key])
+                self.settings[key] = re.sub(
+                        r"\$server_name",
+                        self.settings['server_name'],
+                        self.settings[key])
+                self.settings[key] = re.sub(
+                        r"\$proxy_pass",
+                        self.settings['proxy_pass'],
+                        self.settings[key])
 
     def get_all(self):
         return self.settings
