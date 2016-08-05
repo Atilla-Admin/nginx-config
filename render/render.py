@@ -47,3 +47,12 @@ class Render():
             os.symlink(self.output_file, self.output_symlink)
         except:
             print('Unable to create the symbolic link')
+
+    def ensure_log_present(self):
+        if not os.path.exists(self.settings.get('log_path')):
+            if self.settings.get('ensure_log_directory'):
+                print('Creating the log directory')
+                os.makedir(self.settings.get('log_path'))
+            else:
+                print('Log directory not created, use --ensure-log-directory'
+                      ' to create it')
